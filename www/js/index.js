@@ -134,7 +134,14 @@ jsonTitles(function(content){
     
 ///////////////////Add list of current articles to news page/////////////////////////////// 
     var newsContent = $('#newsContent');
+    newsContent.append($('<ul/>', {
+                    'data-role': 'listview',
+                    'id': 'newslist',
+                    'class': 'ui-nodisc-icon ui-alt-icon'
+                
+                        }));
     
+    var newslist = $('#newslist');
     
     $(article).each(function(i){
                 
@@ -146,17 +153,13 @@ jsonTitles(function(content){
                     
                 console.log(articleid);
                 
-                newsContent.append($('<ul/>', {
-                    'data-role': 'listview',
-                    'class': 'ui-nodisc-icon ui-alt-icon'
-                
-                        }).append(
+                newslist.append(
                         $('<li />', {
                             'data-theme': 'c',
                             'class': 'ui-icon-alt ui-icon-nodisc'
-                        }).html('<a href="#' + articleid + '"><img src="images/news/news_' + num + '.png"><h2>' + headline + '</h2><p>' + desc +'</p><p class="ui-li-aside">click for more...</p></a>')));
+                        }).html('<a href="#' + articleid + '"><img src="images/news/news_' + num + '.png"><h2>' + headline + '</h2><p>' + desc +'</p><p class="ui-li-aside">click for more...</p></a>'));
             
-            });
+    });
     
     
 ////////////////////Left Panel List of sections/////////////////////
