@@ -3,7 +3,7 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.skillpad.*"
+        id        = "*"
         version   = "0.0.1"
         versionCode = "1" >
 
@@ -13,7 +13,7 @@
         PFAI application
     </description>
 
-    <author href="http://skillpad.com" email="strtbyrne@gmail.com">
+    <author href="http://pfai.ie" email="strtbyrne@gmail.com">
         Stuart Byrne
     </author>
 	
@@ -64,7 +64,7 @@
     <icon src="res/icon/ios/icon-57-2x.png"         gap:platform="ios"        width="114" height="114" />
     <icon src="res/icon/ios/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />
     <icon src="res/icon/winphone/icon.png" gap:platform="winphone" />
-    <icon src="res/icon/winphone/tileicon.png" gap:platform="winphone" gap:role="background" />
+    <icon src="res/icon/winphone/titleicon.png" gap:platform="winphone" gap:role="background" />
     <gap:splash src="res/screen/ios/screen-iphone-portrait.png"    gap:platform="ios"     width="320" height="480" />
     <gap:splash src="res/screen/ios/screen-iphone-portrait-2x.png" gap:platform="ios"     width="640" height="960" />
     <gap:splash src="res/screen/ios/screen-ipad-portrait.png"      gap:platform="ios"     width="768" height="1024" />
