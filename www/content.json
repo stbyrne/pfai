@@ -1,0 +1,84 @@
+jsonCallback(
+    {
+    "app": {
+        "appTitle": "PFAI Mobile",
+        "subTitle": "Supporting the players",
+        "section": [
+            {
+                "id": "news",
+                "title": "News",
+                "article": [
+                    {
+                        "id": "article1",
+                        "headline": "PFAI announce new app for players.",
+                        "description": "Article 1 description.",
+                        "story": "Article 1 story."
+                    },
+                    {
+                        "id": "article2",
+                        "headline": "Gary O'Neill fundraiser",
+                        "description": "Article 1 description.",
+                        "story": "Article 2 story."
+                    },
+                    {
+                        "id": "article3",
+                        "headline": "St Pats win League Title",
+                        "description": "Article 3 description.",
+                        "story": "Article 3 story."
+                    },
+                    {
+                        "id": "article4",
+                        "headline": "Players Transfer List",
+                        "description": "Article 4 description.",
+                        "story": "Article 4 story."
+                    }
+                ]
+            },
+            {
+                "id": "membership",
+                "title": "Membership"
+            },
+            {
+                "id": "transferlist",
+                "title": "Transfer List"
+            },
+            {
+                "id": "coaching",
+                "title": "Coaching"
+            },
+            {
+                "id": "health",
+                "title": "Mens Health"
+            },
+            {
+                "id": "career",
+                "title": "Career Guidance"
+            },
+            {
+                "id": "antidoping",
+                "title": "Anti-doping"
+            },
+            {
+                "id": "tax",
+                "title": "Tax"
+            },
+            {
+                "id": "transfer",
+                "title": "Transfer Window"
+            },
+            {
+                "id": "betting",
+                "title": "Betting"
+            },
+            {
+                "id": "agency",
+                "title": "Agency"
+            },
+            {
+                "id": "maps",
+                "title": "Maps"
+            }
+        ]
+    }
+}
+);
