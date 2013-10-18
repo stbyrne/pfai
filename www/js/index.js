@@ -81,7 +81,6 @@ jsonTitles(function(content){
                         pagelist.push(pagetitle);
                         pageidlist.push(pageid);
                 
-                        console.log(pagelist);
             
 ///////////////////Creates the individual pages for each section////////////////
                         $body.append($('<div />', {
@@ -134,6 +133,7 @@ jsonTitles(function(content){
     
 ///////////////////Add list of current articles to news page/////////////////////////////// 
     var newsContent = $('#newsContent');
+    
     newsContent.append($('<ul/>', {
                     'data-role': 'listview',
                     'id': 'newslist',
@@ -152,6 +152,38 @@ jsonTitles(function(content){
                     story = $(this).attr('story');
                     
                 console.log(articleid);
+                
+                $body.append($('<div />', {
+                            id: articleid,
+                            'data-role': 'page'
+                        }).append($('<div />', {
+                            'data-role': 'header',
+                            'data-position': 'fixed',
+                            id: articleid + 'header',
+                            'data-theme': 'c'
+                        }).html('<a href="#left-panel" id="menuNav" class="ui-nodisc-icon" data-role="none"><img src="images/menu_g.png"/></a><h1 id="sectionTitle">Latest News</h1><h2 id="subTitle">'+ headline +'</h2><a href="#home" id="homeNav" class="ui-icon-nodisc" data-role="none"><img src="images/home_g.png"/></a>')).each(function(){
+                        
+                            $(this).append($('<div />', {
+                                'data-role': 'content',
+                                'id': articleid + 'Content',
+                                'class': 'feature'
+                            }).html('<img src="images/news/news_'+ num +'.png"/><p>'+ desc +'</p>'))/*.append($('<div />', {
+                                    'data-role': 'panel',
+                                    'class': 'ui-icon-alt',
+                                    id: 'left-panel'
+                                    }).each(function(){
+                                
+                                            $(this).append($('<div />', {
+                                            'data-role': 'controlgroup'
+                                            }).html('<p>Menu</p>')).append($('<div />', {
+                                                                        'data-role': 'content' 
+                                                                        }).append($('<ul />', {
+                                                                        'data-role': 'listview',
+                                                                        'class': 'ui-nodisc-icon ui-alt-icon',
+                                                                        'id': 'listLeft'
+                                                                        })))
+                                            }))*/
+                                        }));
                 
                 newslist.append(
                         $('<li />', {
@@ -188,7 +220,7 @@ jsonTitles(function(content){
     
         $( document ).on( "pageinit", "#maps", function() {
        
-    var defaultLatLng = new google.maps.LatLng(34.0983425, -118.3267434);  // Default to Hollywood, CA when no geolocation support
+    var defaultLatLng = new google.maps.LatLng(53.3954533, -6.355980);  // Default to PFAI offices, Dublin when no geolocation support
     if ( navigator.geolocation ) {
         function success(pos) {
             // Location found, show map with these coordinates
@@ -213,7 +245,7 @@ jsonTitles(function(content){
         var marker = new google.maps.Marker({
             position: latlng,
             map: map,
-            title: "Greetings!"
+            title: "You are here!"
         });
     }
 });
