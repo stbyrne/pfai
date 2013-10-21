@@ -168,7 +168,7 @@ jsonTitles(function(content){
                                 'data-role': 'content',
                                 'id': articleid + 'Content',
                                 'class': 'feature'
-                            }).html('<img src="images/news/news_'+ num +'.png"/><p>'+ desc +'</p>'))/*.append($('<div />', {
+                            }).html('<img src="images/news/news_'+ num +'.png"/><p>'+ desc +'</p>')).append($('<div />', {
                                     'data-role': 'panel',
                                     'class': 'ui-icon-alt',
                                     id: 'left-panel'
@@ -180,10 +180,11 @@ jsonTitles(function(content){
                                                                         'data-role': 'content' 
                                                                         }).append($('<ul />', {
                                                                         'data-role': 'listview',
+                                                                        'data-icon': 'false',
                                                                         'class': 'ui-nodisc-icon ui-alt-icon',
                                                                         'id': 'listLeft'
                                                                         })))
-                                            }))*/
+                                            }))
                                         }));
                 
                 newslist.append(

@@ -23,6 +23,13 @@
 }
 /*Custom Buttons*/
 
+#menuNav, #homeNav{
+    background-image: linear-gradient( rgba(222, 222, 222, 0.4) , rgba(198, 198, 198, 0.4) );
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 0 1px rgba(126, 126, 126, 0.75);
+}
+
 #menuNav img, #homeNav img{
     width: 40px;
 }
@@ -297,8 +304,8 @@ span .ui-icon .ui-icon-plus{
     /* Semi transparent background and different position if there is a thumb */
     .ui-listview:not(#listLeft) .ui-li-has-thumb .ui-li-heading,
     .ui-listview:not(#listLeft) .ui-li-has-thumb .ui-li-desc {
-        background: #383838;
-        background: rgba(20, 20, 20, 0.7);
+        background: #4a4a4a;
+        background: rgba(20, 20, 20, 0.6);
         -webkit-background-clip: padding;
         background-clip: padding-box;
     }
