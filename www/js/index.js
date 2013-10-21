@@ -286,6 +286,10 @@ jsonTitles(function(content){
     
 });///End jQuery Function///
 
+$('#twitter').on('touchend', function(){
+window.open('https://twitter.com/PFAIOfficial');
+    });
+
 
 
 
