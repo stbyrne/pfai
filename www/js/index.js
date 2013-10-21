@@ -1,4 +1,5 @@
-$(function(){	
+$(function(){
+
     
 ///////////////////Ajax jsonp function to get data from json file////////////////
 		
@@ -80,6 +81,13 @@ jsonTitles(function(content){
             
                         pagelist.push(pagetitle);
                         pageidlist.push(pageid);
+            
+////////////////////Create List navigation in left panel on home page///////////////////////
+            
+            homeList.append(
+                $('<li />', {
+                    'data-theme': 'c'
+                }).html('<a href="#' + pageid + '"><span>' + pagetitle + '</span></a>')).listview('refresh');
                 
             
 ///////////////////Creates the individual pages for each section////////////////
@@ -108,21 +116,14 @@ jsonTitles(function(content){
                                                                         'data-role': 'content' 
                                                                         }).append($('<ul />', {
                                                                         'data-role': 'listview',
+                                                                        'data-icon': 'false',
                                                                         'class': 'ui-nodisc-icon ui-alt-icon',
                                                                         'id': 'listLeft'
                                                                         })))
                                             }))
                                         }));
             
-////////////////////Create List navigation in left panel on home page///////////////////////
-            
-            homeList.append(
-                $('<li />', {
-                    'data-theme': 'c'
-                }).html('<a href="#' + pageid + '"><span>' + pagetitle + '</span></a>'));
-            
 
-            
 
         });//////End of Section Loop//////
     
@@ -188,8 +189,9 @@ jsonTitles(function(content){
                 newslist.append(
                         $('<li />', {
                             'data-theme': 'c',
+                            'data-icon': 'false',
                             'class': 'ui-icon-alt ui-icon-nodisc'
-                        }).html('<a href="#' + articleid + '"><img src="images/news/news_' + num + '.png"><h2>' + headline + '</h2><p>' + desc +'</p><p class="ui-li-aside">click for more...</p></a>'));
+                        }).html('<a href="#' + articleid + '"><img src="images/news/news_' + num + '.png"><h2>' + headline + '</h2><p>' + desc +'</p><p class="ui-li-aside">more...</p></a>'));
             
     });
     
@@ -205,16 +207,9 @@ jsonTitles(function(content){
                                
                     });
                
-                    /*$('head').append('<link rel="stylesheet" href="css/index.css"/>');*/
-                    /*$('head').append('<link rel="stylesheet" href="js/jquery.mobile-1.4.0-beta.1.min.css" />');
-                    $('head').append('<link rel="stylesheet" href="js/jquery.mobile.structure-1.4.0-beta.1.min.css" />');*/
-                
-                    /*$('head').append('<script src="js/jquery.mobile-1.4.0-beta.1.min.js"></script>');*/
-                    $('head').append('<script src="js/jquery.mobile-1.3.2.min.js"></script>');
-                    /*$('#home').attr('id', 'home');*/
-        
-        
+       
     });///End jsonTitles Function///
+
     
 //////////////////////Initiate Maps///////////////////
     

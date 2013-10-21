@@ -1,70 +1,181 @@
-//======================================================== FASTCLICK
-         function FastButton(element, handler) {
-            this.element = element;
-            this.handler = handler;
-            element.addEventListener('touchstart', this, false);
-         };
-         FastButton.prototype.handleEvent = function(event) {
-            switch (event.type) {
-               case 'touchstart': this.onTouchStart(event); break;
-               case 'touchmove': this.onTouchMove(event); break;
-               case 'touchend': this.onClick(event); break;
-               case 'click': this.onClick(event); break;
-            }
-         };
-         FastButton.prototype.onTouchStart = function(event) {
+(function() {
 
-event.stopPropagation();
-            this.element.addEventListener('touchend', this, false);
-            document.body.addEventListener('touchmove', this, false);
-            this.startX = event.touches[0].clientX;
-            this.startY = event.touches[0].clientY;
- isMoving = false;
-         };
-         FastButton.prototype.onTouchMove = function(event) {
-            if(Math.abs(event.touches[0].clientX - this.startX) > 10 || Math.abs(event.touches[0].clientY - this.startY) > 10) {
-               this.reset();
-            }
-         };
-         FastButton.prototype.onClick = function(event) {
-            this.reset();
-            this.handler(event);
-            if(event.type == 'touchend') {
-               preventGhostClick(this.startX, this.startY);
-            }
-         };
-         FastButton.prototype.reset = function() {
-            this.element.removeEventListener('touchend', this, false);
-            document.body.removeEventListener('touchmove', this, false);
-         };
-         function preventGhostClick(x, y) {
-            coordinates.push(x, y);
-            window.setTimeout(gpop, 2500);
-         };
-         function gpop() {
-            coordinates.splice(0, 2);
-         };
-         function gonClick(event) {
-            for(var i = 0; i < coordinates.length; i += 2) {
-               var x = coordinates[i];
-               var y = coordinates[i + 1];
-               if(Math.abs(event.clientX - x) < 25 && Math.abs(event.clientY - y) < 25) {
-                  event.stopPropagation();
-                  event.preventDefault();
-               }
-            }
-         };
-         document.addEventListener('click', gonClick, true);
-         var coordinates = [];
-         function initFastButtons() {
- new FastButton(document.getElementById("fastclick"), goSomewhere);
-         };
-         function goSomewhere() {
- var theTarget = document.elementFromPoint(this.startX, this.startY);
- if(theTarget.nodeType == 3) theTarget = theTarget.parentNode;
+  var Clickbuster, FastButton, clickDistance, clickbusterDistance, clickbusterTimeout, debug, eventHandler;
 
- var theEvent = document.createEvent('MouseEvents');
- theEvent.initEvent('click', true, true);
- theTarget.dispatchEvent(theEvent);
-         };
-//========================================================
+  clickbusterDistance = 25;
+
+  clickbusterTimeout = 2500;
+
+  clickDistance = 10;
+
+  if (window.debug == null) {
+    debug = function(arg) {
+      return console.log(arg);
+    };
+  }
+
+  FastButton = (function() {
+
+    function FastButton(selector, handler) {
+      var handlers, that;
+      this.selector = selector;
+      this.handler = handler;
+      if (!("ontouchstart" in window)) {
+        return;
+      }
+      this.active = false;
+      that = this;
+      handlers = {
+        touchstart: function(event) {
+          return that.touchStart(event, this);
+        },
+        touchend: function(event) {
+          return that.touchEnd(event, this);
+        }
+      };
+      $(document).on(handlers, selector).on('touchmove', function() {
+        return that.touchMove(event);
+      });
+    }
+
+    FastButton.prototype.touchStart = function(event, element) {
+      var touch;
+      touch = event.originalEvent.touches[0];
+      this.active = true;
+      this.startX = touch.clientX;
+      this.startY = touch.clientY;
+      return event.stopPropagation();
+    };
+
+    FastButton.prototype.touchMove = function(event) {
+      var dx, dy, touch;
+      if (!this.active) {
+        return;
+      }
+      touch = event.originalEvent.touches[0];
+      dx = Math.abs(touch.clientX - this.startX);
+      dy = Math.abs(touch.clientY - this.startY);
+      if (dx > clickDistance || dy > clickDistance) {
+        return this.active = false;
+      }
+    };
+
+    FastButton.prototype.touchEnd = function(event, element) {
+      if (!this.active) {
+        return;
+      }
+      event.preventDefault();
+        
+      this.active = false;
+      Clickbuster.preventGhostClick(this.startX, this.startY);
+      return this.handler.call(element, event);
+    };
+
+    return FastButton;
+
+  })();
+
+  Clickbuster = (function() {
+
+    function Clickbuster() {}
+
+    Clickbuster.coordinates = [];
+
+    Clickbuster.preventGhostClick = function(x, y) {
+      Clickbuster.coordinates.push(x, y);
+      return window.setTimeout(Clickbuster.pop, clickbusterTimeout);
+    };
+
+    Clickbuster.pop = function() {
+      return Clickbuster.coordinates.splice(0, 2);
+    };
+
+    Clickbuster.onClick = function(event) {
+      var coordinates, dx, dy, i, x, y;
+      coordinates = Clickbuster.coordinates;
+      i = 0;
+      if (event.clientX == null) {
+        return true;
+      }
+      window.ev = event;
+      while (i < coordinates.length) {
+        x = coordinates[i];
+        y = coordinates[i + 1];
+        dx = Math.abs(event.clientX - x);
+        dy = Math.abs(event.clientY - y);
+        i += 2;
+        if (dx < clickbusterDistance && dy < clickbusterDistance) {
+          return false;
+        }
+      }
+      return true;
+    };
+
+    return Clickbuster;
+
+  })();
+
+  eventHandler = function(handleObj) {
+    var origHandler;
+    origHandler = handleObj.handler;
+    return handleObj.handler = function(event) {
+      if (!Clickbuster.onClick(event)) {
+        return false;
+      }
+      return origHandler.apply(this, arguments);
+    };
+  };
+
+  $.event.special.click = {
+    add: eventHandler
+  };
+
+  $.event.special.submit = {
+    add: eventHandler
+  };
+
+  $.fn.extend({
+    fastButton: function(handler) {
+      return $.fastButton(this.selector, handler);
+    }
+  });
+
+  $.extend({
+    fastButton: function(selector, handler) {
+      return new FastButton(selector, handler);
+    }
+  });
+
+  $.fastButton('.use-fastclick a[data-remote],\
+   .use-fastclick .fastClick', function(ev) {
+    $(this).trigger('click');
+    return false;
+  });
+
+  $.fastButton('.use-fastclick a:not([data-remote]):not(.fastClick)', function(ev) {
+    var $this, href, target;
+    $this = $(this);
+    target = $this.attr('target');
+    href = $this.attr('href');
+    if (target === void 0) {
+      window.location = href;
+    } else {
+      window.open(href, target);
+    }
+    return false;
+  });
+
+  $.fastButton('.use-fastclick .submit,\
+   .use-fastclick input[type="submit"],\
+   .use-fastclick button[type="submit"]', function(ev) {
+    $(this).closest('form').trigger('click');
+    return false;
+  });
+
+  $.fastButton('.use-fastclick input[type="text"]', function(ev) {
+    ev.preventDefault();
+    $(this).trigger('focus');
+    return false;
+  });
+
+}).call(this);

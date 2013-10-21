@@ -278,8 +278,8 @@ span .ui-icon .ui-icon-plus{
         position: absolute;
         left: 0;
         right: 0;
-        color: #ededed !important;
-        text-shadow: none !important;
+        color: #ededed;
+        text-shadow: none;
     }
     /* Text position */
     .app .ui-listview:not(#listLeft) .ui-li-heading {
@@ -323,9 +323,9 @@ span .ui-icon .ui-icon-plus{
         left: auto;
         bottom: auto;
         /* Custom styling. */
-        color: #f2f2f2;
-        background: rgb(0, 185, 50);
-        background: rgba(0, 185, 50, .85);
+        color: #00b932;
+        background: none/*rgb(0, 185, 50)*/;
+        background: none/*rgba(0, 185, 50, .85)*/;
         -webkit-border-top-right-radius: inherit;
         border-top-right-radius: inherit;
         -webkit-border-bottom-left-radius: inherit;
