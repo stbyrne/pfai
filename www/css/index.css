@@ -37,6 +37,51 @@
     padding: 2px 5px !important;
 }
 
+/* Communications footer on homepage*/
+#com{
+    left:0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    z-index: 100;
+    background: #4a4a4a;
+    background: rgba(20, 20, 20, 0.85);
+}
+#com a{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -o-box;
+    display: -ms-box;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -o-box-pack: center;
+    -ms-box-pack: center;
+    border-right: 1px solid #bfbfbf;
+    margin-right: -1px;
+    /*padding: 10px;*/
+    height: 70px;
+    bottom: 0;
+    width: 25%;
+    float: left;
+    text-decoration: none;
+    color: rgb(245, 245, 245);
+    text-align: center;
+    background: #656565;
+    background: rgba(90, 90, 90, 0.85);
+}
+#com a span{
+    font: .8em Calibri, Arial, Verdana, sans-serif;
+    text-decoration: none;
+    text-shadow: none;
+    margin: 10px;
+}
+#com a img{
+    margin: 5px auto;
+    max-width: 40%;
+    max-height: 40%;
+}
+
 #sectionTitle{
     font: bold 1.2em Calibri, Arial, Verdana, sans-serif !important;
     text-overflow: ellipsis !important;
