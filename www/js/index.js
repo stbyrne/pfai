@@ -286,13 +286,33 @@ jsonTitles(function(content){
     
 });///End jQuery Function///
 
-$('#com a').on('mousedown', function(){
+//Apply click events to communication buttons on homepage//
+
+/*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ){};*/
+
+ if( /Chrome|Safari|IE/i.test(navigator.userAgent) ) {
+     $('#com a').on('mousedown', function(){
+         $(this).css('background', 'rgba(129, 129, 129, 0.8)');
+            }).on('mouseup', function(){
+                $(this).css('background', 'rgba(20, 20, 20, 0.8)');
+                });
+           
+        }else{
+            $('#com a').on('touchstart', function(){
+         $(this).css('background', 'rgba(129, 129, 129, 0.8)');
+            }).on('touchend', function(){
+                $(this).css('background', 'rgba(20, 20, 20, 0.8)');
+                });
+            
+        }
+
+/*$('#com a').on('click', function(){
     $(this).css('background', 'rgba(129, 129, 129, 0.8)');
 }).on('mouseup', function(){
     $(this).css('background', 'rgba(20, 20, 20, 0.8)');
-});
+});*/
 
-$('#twitter').on('mouseup', function(){
+$('#twitter').on('click', function(){
 window.open('https://twitter.com/PFAIOfficial');
     });
 
@@ -303,9 +323,6 @@ window.open('https://twitter.com/PFAIOfficial');
 /////////////////////////////////////////////////////////////////////
 
 
-
-
-	
 
 
 	
