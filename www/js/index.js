@@ -221,6 +221,7 @@ jsonTitles(function(content){
         function success(pos) {
             // Location found, show map with these coordinates
             drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+            $('#mapsContent').gmap('addMarker', defaultLatLng);
         }
         function fail(error) {
             drawMap(defaultLatLng);  // Failed to find location, show default map
@@ -330,13 +331,12 @@ $('#face').on('click', function(){
 window.open('https://www.facebook.com/pages/PFAIOfficial/137333183069003');
     });
 
-
-
-
     
-/////////////////////////////////////////////////////////////////////
+////////////////////Fix page while scrolling left menu///////////////////////
 
-
+$('#menuNav').on('click', function(){
+    $('#home').attr('data-position', 'fixed');
+});
 
 
 	
