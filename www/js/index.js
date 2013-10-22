@@ -286,7 +286,7 @@ jsonTitles(function(content){
     
 });///End jQuery Function///
 
-//Apply click events to communication buttons on homepage//
+/////////////Apply click styling to communication buttons on homepage//////////////
 
 /*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ){};*/
 
@@ -312,8 +312,22 @@ jsonTitles(function(content){
     $(this).css('background', 'rgba(20, 20, 20, 0.8)');
 });*/
 
+/////////////Apply click events to communication buttons on homepage//////////////
+
+$('#mail').on('click', function(){
+    $(this).attr('href', 'mailto:info@pfai.ie');
+    });
+
+$('#call').on('click', function(){
+    $(this).attr('href', 'tel:0035318999350');
+    });
+
 $('#twitter').on('click', function(){
 window.open('https://twitter.com/PFAIOfficial');
+    });
+
+$('#face').on('click', function(){
+window.open('https://www.facebook.com/pages/PFAIOfficial/137333183069003');
     });
 
 
