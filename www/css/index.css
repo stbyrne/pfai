@@ -51,8 +51,6 @@
     height: 60px;
     position: fixed;
     z-index: 100;
-    background: #4a4a4a;
-    background: -webkit-linear-gradient( rgba(90, 90, 90, 0.9) , rgba(15, 15, 15, 0.9) );
 }
 #com a{
     display: -webkit-box;
@@ -73,12 +71,12 @@
     text-decoration: none;
     color: rgb(204, 204, 204);
     text-align: center;
-    background: #656565;
-    background: rgba(90, 90, 90, 0.85);
+    background: #141414;
+    background: rgba(20, 20, 20, .8);
     -webkit-box-shadow: inset 0 0 2px rgba(157, 157, 157, 0.6);
     -moz-box-shadow: inset 0 0 8px rgba(180, 180, 180, 0.6);
     -ms-box-shadow: inset 0 0 8px rgba(180, 180, 180, 0.6);
-    box-shadow: inset 0 0 8px rgba(137, 137, 137, 0.6);
+    box-shadow: inset 0 0 3px rgba(137, 137, 137, 0.6);
 }
 #com a span{
     font: .6em Calibri, Arial, Verdana, sans-serif;
