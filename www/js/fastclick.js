@@ -1,5 +1,4 @@
 (function() {
-
   var Clickbuster, FastButton, clickDistance, clickbusterDistance, clickbusterTimeout, debug, eventHandler;
 
   clickbusterDistance = 25;
