@@ -286,7 +286,13 @@ jsonTitles(function(content){
     
 });///End jQuery Function///
 
-$('#twitter').on('touchend', function(){
+$('#com a').on('mousedown', function(){
+    $(this).css('background', 'rgba(129, 129, 129, 0.8)');
+}).on('mouseup', function(){
+    $(this).css('background', 'rgba(20, 20, 20, 0.8)');
+});
+
+$('#twitter').on('mouseup', function(){
 window.open('https://twitter.com/PFAIOfficial');
     });
 
