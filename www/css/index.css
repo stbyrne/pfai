@@ -107,7 +107,11 @@ table{
 }
 
 thead{
+<<<<<<< HEAD
     font: bold .9em Helvetica, Calibri, Arial, Verdana, sans-serif;
+=======
+    font: bold 1em Helvetica, Calibri, Arial, Verdana, sans-serif;
+>>>>>>> dca17b9d9242a7eca4f70c2f12e2e4d71eb930b1
     color: #00b937;
     color: rgba(0, 170, 50, 0.85);
     
@@ -118,11 +122,19 @@ tr{
 }
 th, td{
     display: table-cell;
+<<<<<<< HEAD
     padding: 4px;
     border-bottom: 1px solid rgb(200, 200, 200);
 }
 tbody{
     font: .5em Helvetica, Calibri, Arial, Verdana, sans-serif;
+=======
+    padding: 5px;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+tbody{
+    font: .8em Helvetica, Calibri, Arial, Verdana, sans-serif;
+>>>>>>> dca17b9d9242a7eca4f70c2f12e2e4d71eb930b1
     color: #6a6a6a;
     color: rgb(106, 106, 106);   
 }
@@ -359,6 +371,18 @@ span .ui-icon .ui-icon-plus{
     tbody{
     font-size: 1.2em;
     }
+<<<<<<< HEAD
+=======
+    /*Tables*/
+    
+    thead{
+    font-size: 1.4em;
+    }
+    
+    tbody{
+    font-size: 1.2em;
+    }
+>>>>>>> dca17b9d9242a7eca4f70c2f12e2e4d71eb930b1
     
     #sectionTitle{
         font-size: 2em !important;

@@ -206,8 +206,14 @@ jsonTitles(function(content){
     });///End jsonTitles Function///
 
 
+<<<<<<< HEAD
 
 
+=======
+    
+ 
+    
+>>>>>>> dca17b9d9242a7eca4f70c2f12e2e4d71eb930b1
 });///End jQuery Function///
 
     
@@ -294,6 +300,7 @@ window.open('https://www.facebook.com/pages/PFAIOfficial/137333183069003');
 
     
 ////////////////////Fix page while scrolling left menu///////////////////////
+<<<<<<< HEAD
 
 /*$('#menuNav').on('click', function(){
     $('#home').attr('data-position', 'fixed');
@@ -356,10 +363,59 @@ $( document ).on( "pageinit", "#transferlist", function() {
     
     
 		});
+=======
+
+/*$('#menuNav').on('click', function(){
+    $('#home').attr('data-position', 'fixed');
+});*/
+
+////////////////////Create Table for Transfer List///////////////////////
+
+   
+$( document ).on( "pageinit", "#transferlist", function() {
+    
+    var translistContent = $('#transferlistContent');
+
+    translistContent.append($('<table/>', {
+        'data-role': 'table',
+    }).append($('<thead/>').append($('<tr/>').html('<th>#</th><th>Name</th><th>Club</th><th>Pos</th><th>Age</th><th>dob</th><th>kg</th><th>Exp</th>'))).append($('<tbody/>').append($('<tr/>').html('<th>1</th><td>cell</td><td>cell</td><td>cell</td><td>cell</td><td>cell</td><td>cell</td><td>cell</td>'))));
+    
+    });
+>>>>>>> dca17b9d9242a7eca4f70c2f12e2e4d71eb930b1
 
 
 
+/*.append($('<thead/>')).append($('<tr/>')).html('<th></th><th>Player Name</th><th>Pre Club</th><th>Positions</th><th>Age</th><th>Date Of Birth</th><th>Weight kg</th><th>Exp Level</th>')*/
 
+<<<<<<< HEAD
+=======
+
+/*<table id="transfer-list" class="table table-striped table-bordered">
+            <caption><h4>Current Transfer List Of Availabe Players</h4></caption>
+            <colgroup>
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Player Name</th>
+                    <th scope="col">Previous Clubs</th>                            
+                    <th scope="col">Positions</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Date Of Birth</th>
+                    <th scope="col">Weight(kg)</th>
+                    <th scope="col">Experience Level</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>*/
+>>>>>>> dca17b9d9242a7eca4f70c2f12e2e4d71eb930b1
 
 
 	
