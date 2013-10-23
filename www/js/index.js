@@ -1,6 +1,6 @@
 $(function(){
 
-    
+   
 ///////////////////Ajax jsonp function to get data from json file////////////////
 		
     
@@ -17,7 +17,6 @@ function jsonTitles(holdData){
         success: function(data) {
             holdData(data);
             
-            /*$('body').remove('#loader');*/
         },
         error: function() {
             $('body').css({
@@ -45,15 +44,10 @@ jsonTitles(function(content){
             appTitle = $(content.app).attr('appTitle'),
             subTitle = $(content.app).attr('subTitle'),
             newsTitle = $('#newsTitle'),
-            /*sectionTitle = $(content.app.section.news.title),
-            story = content.app.section.news.story,*/
             newsList = $('#newsList'),
             collapseList = $('#collapseList'),
             homeList = $('#homeList'),
-            logLeft = $('#loglistLeft'),/*
-            menuLeft = $('#menulistLeft'),*/
-            /*news = $(content.app.section.news),*/
-            /*article = $(content.app.section.news.article),*/
+            logLeft = $('#loglistLeft'),
             $body = $('body'),
             section = $(content.app.section),
             article = section.attr('article');
@@ -99,7 +93,7 @@ jsonTitles(function(content){
                             'data-position': 'fixed',
                             id: pageid + 'header',
                             'data-theme': 'c'
-                        }).html('<a href="#left-panel" id="menuNav" class="ui-nodisc-icon" data-role="none"><img src="images/menu_g.png"/></a><h1 id="sectionTitle">'+ pagetitle +'</h1><a href="#home" id="homeNav" class="ui-icon-nodisc" data-role="none"><img src="images/home_g.png"/></a>')).each(function(){
+                        }).html('<a href="#left-panel" id="menuNav" class="ui-nodisc-icon" data-role="none"><img src="images/nav_g.png"/>Menu</a><h1 id="sectionTitle">'+ pagetitle +'</h1><a href="#home" id="homeNav" class="ui-icon-nodisc" data-role="none">Home</a>')).each(function(){
                         
                             $(this).append($('<div />', {
                                 'data-role': 'content',
@@ -162,7 +156,7 @@ jsonTitles(function(content){
                             'data-position': 'fixed',
                             id: articleid + 'header',
                             'data-theme': 'c'
-                        }).html('<a href="#left-panel" id="menuNav" class="ui-nodisc-icon" data-role="none"><img src="images/menu_g.png"/></a><h1 id="sectionTitle">Latest News</h1><h2 id="subTitle">'+ headline +'</h2><a href="#home" id="homeNav" class="ui-icon-nodisc" data-role="none"><img src="images/home_g.png"/></a>')).each(function(){
+                        }).html('<a href="#left-panel" id="menuNav" class="ui-nodisc-icon" data-role="none"><img src="images/nav_g.png"/>Menu</a><h1 id="sectionTitle">Latest News</h1><h2 id="subTitle">'+ headline +'</h2><a href="#home" id="homeNav" class="ui-icon-nodisc" data-role="none">Home</a>')).each(function(){
                         
                             $(this).append($('<div />', {
                                 'data-role': 'content',
@@ -211,6 +205,11 @@ jsonTitles(function(content){
        
     });///End jsonTitles Function///
 
+
+
+
+});///End jQuery Function///
+
     
 //////////////////////Initiate Maps///////////////////
     
@@ -221,6 +220,7 @@ jsonTitles(function(content){
         function success(pos) {
             // Location found, show map with these coordinates
             drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+            $('#mapsContent').gmap('addMarker', defaultLatLng);
         }
         function fail(error) {
             drawMap(defaultLatLng);  // Failed to find location, show default map
@@ -247,59 +247,119 @@ jsonTitles(function(content){
 });
     
 //////////////////////End Maps//////////////////////////
-    
-   /* $('#logo').click(function(){
-        window.open('http://www.skillpad.com', '_blank');
-    
-    });*/
-    
-/*    $( document ).on( "pagecreate", "#home", function() {
-    $( document ).on( "swipeleft swiperight", "#home", function( e ) {
-        // We check if there is no open panel on the page because otherwise
-        // a swipe to close the left panel would also open the right panel (and v.v.).
-        // We do this by checking the data that the framework stores on the page element (panel: open).
-        if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
-            if ( e.type === "swipeleft"  ) {
-                $( "#right-panel" ).panel( "open" );
-            } else if ( e.type === "swiperight" ) {
-                $( "#left-panel" ).panel( "open" );
-            }
-        }
-    });
-})*/;
-    
-/*    $( document ).on( "pageinit", "body", function() {
-    $( document ).on( "swipeleft swiperight", "body", function( e ) {
-        // We check if there is no open panel on the page because otherwise
-        // a swipe to close the left panel would also open the right panel (and v.v.).
-        // We do this by checking the data that the framework stores on the page element (panel: open).
-        if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
-            if ( e.type === "swipeleft"  ) {
-                $( "#right-panel" ).panel( "open" );
-            } else if ( e.type === "swiperight" ) {
-                $( "#left-panel" ).panel( "open" );
-            }
-        }
-    });
-});*/
-  
-    
-});///End jQuery Function///
 
-$('#twitter').on('touchend', function(){
+/////////////Apply click styling to communication buttons on homepage//////////////
+
+/*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ){};*/
+
+ if( /Chrome|Safari|IE/i.test(navigator.userAgent) ) {
+     $('#com a').on('mousedown', function(){
+         $(this).css('background', 'rgba(129, 129, 129, 0.8)');
+            }).on('mouseup', function(){
+                $(this).css('background', 'rgba(20, 20, 20, 0.8)');
+                });
+           
+        }else{
+            $('#com a').on('touchstart', function(){
+         $(this).css('background', 'rgba(129, 129, 129, 0.8)');
+            }).on('touchend', function(){
+                $(this).css('background', 'rgba(20, 20, 20, 0.8)');
+                });
+            
+        }
+
+/*$('#com a').on('click', function(){
+    $(this).css('background', 'rgba(129, 129, 129, 0.8)');
+}).on('mouseup', function(){
+    $(this).css('background', 'rgba(20, 20, 20, 0.8)');
+});*/
+
+/////////////Apply click events to communication buttons on homepage//////////////
+
+$('#mail').on('click', function(){
+    $(this).attr('href', 'mailto:info@pfai.ie');
+    });
+
+$('#call').on('click', function(){
+    $(this).attr('href', 'tel:0035318999350');
+    });
+
+$('#twitter').on('click', function(){
 window.open('https://twitter.com/PFAIOfficial');
     });
 
-
-
+$('#face').on('click', function(){
+window.open('https://www.facebook.com/pages/PFAIOfficial/137333183069003');
+    });
 
     
-/////////////////////////////////////////////////////////////////////
+////////////////////Fix page while scrolling left menu///////////////////////
+
+/*$('#menuNav').on('click', function(){
+    $('#home').attr('data-position', 'fixed');
+});*/
+
+////////////////////Create Table for Transfer List///////////////////////
+
+   
+$( document ).on( "pageinit", "#transferlist", function() {
+    
+    var translistContent = $('#transferlistContent');
+
+    translistContent.append($('<table/>', {
+        'data-role': 'table',
+    }).append($('<thead/>').append($('<tr/>').html('<th>#</th><th>Name</th><th>Club</th><th>Pos</th><th>Age</th><th>dob</th><th>kg</th><th>Exp</th>'))).append($('<tbody/>').append($('<tr/>').html('<th>1</th><td>Stuart Byrne</td><td>cell</td><td>cell</td><td>cell</td><td>cell</td><td>cell</td><td>cell</td>'))));
+    
+    //
+    
+    /*function getTweet(holdData){*/
+                
+        $.ajax({
+        
+            /*url: 'services/twitter_example.json',*/
+            url: 'http://localhost/pfai_app_v5/connect.php',
+            dataType: 'json',
+            success: function(data) {
+                console.log(data);
+                /*holdData(data);*/
+            }
+        });
+    /*}*/
+    
+    
+                //Ajax request to get current transfer list and append it to table//
+
+/*var tbody = $('#transferlistContent > tbody');*/
+
+/*$.ajax({
+            type: "GET",
+            url: "services/submit.php",
+            dataType: "json"
+            }).success(function(data) { 
+                    console.log(data);
+                    if(data.success === true) {
+                        tbody.append('<tr><th></th><td>' + data['name'] + '</td><td>' + data['club'] + '</td><td>' + data['pos'] + '</td><td>' + data['age'] + '</td><td>' + data['dob'] + '</td><td>' + data['weight'] + '</td><td style="background-color: ' + data['exp'] + '"></td></tr>');
+                        
+                        $('#new-player').each(function(){
+                            this.reset();
+                            
+                        });
+                        
+                        console.log(json);
+                        
+                    } else {
+                        alert(data.error.join());
+                    }
+                }).fail(function(data) { 
+                alert("Failed to add player to list"); 
+            });*/
+    
+    
+		});
 
 
 
 
-	
 
 
 	

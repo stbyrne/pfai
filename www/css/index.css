@@ -23,7 +23,7 @@
 }
 /*Custom Buttons*/
 
-#menuNav, #homeNav{
+/*#menuNav, #homeNav{
     background-image: linear-gradient( rgba(239, 239, 239, 0.6) , rgba(224, 224, 224, 0.6) );
     border: 1px solid #ddd;
     border-radius: 2px;
@@ -35,12 +35,20 @@
 }
 #menuNav, #homeNav{
     padding: 2px 5px !important;
-}
-#helpNav{
+}*/
+#menuNav, #homeNav, #helpNav{
+    margin: .4em .2em 0;
     text-decoration: none;
-    font: 1.4em Helvetica, Calibri, Arial, Verdana, sans-serif;
+    font: 1.2em Helvetica, Calibri, Arial, Verdana, sans-serif;
     color: #00b937;
     color: rgba(0, 170, 50, 0.85);
+}
+#menuNav img, #homeNav img{
+    max-height: 1.5em;
+    float: left;
+    vertical-align: middle;
+    margin: -.2em 8px;
+    position: relative;
 }
 
 /* Communications footer on homepage*/
@@ -51,8 +59,6 @@
     height: 60px;
     position: fixed;
     z-index: 100;
-    background: #4a4a4a;
-    background: -webkit-linear-gradient( rgba(90, 90, 90, 0.9) , rgba(15, 15, 15, 0.9) );
 }
 #com a{
     display: -webkit-box;
@@ -73,12 +79,12 @@
     text-decoration: none;
     color: rgb(204, 204, 204);
     text-align: center;
-    background: #656565;
-    background: rgba(90, 90, 90, 0.85);
+    background: #141414;
+    background: rgba(20, 20, 20, .8);
     -webkit-box-shadow: inset 0 0 2px rgba(157, 157, 157, 0.6);
     -moz-box-shadow: inset 0 0 8px rgba(180, 180, 180, 0.6);
     -ms-box-shadow: inset 0 0 8px rgba(180, 180, 180, 0.6);
-    box-shadow: inset 0 0 8px rgba(137, 137, 137, 0.6);
+    box-shadow: inset 0 0 3px rgba(137, 137, 137, 0.6);
 }
 #com a span{
     font: .6em Calibri, Arial, Verdana, sans-serif;
@@ -89,6 +95,36 @@
 #com a img{
     margin: 10px 20% 0;
     max-width: 40%;
+}
+
+/*Table for Transfer Listed Players*/
+table{
+    width: 100%;
+    text-align: left;
+    margin: 5px auto 10px;
+    border-spacing: 2px;
+    border-collapse: collapse;
+}
+
+thead{
+    font: bold .9em Helvetica, Calibri, Arial, Verdana, sans-serif;
+    color: #00b937;
+    color: rgba(0, 170, 50, 0.85);
+    
+}
+tr{
+    display: table-row;
+      
+}
+th, td{
+    display: table-cell;
+    padding: 4px;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+tbody{
+    font: .5em Helvetica, Calibri, Arial, Verdana, sans-serif;
+    color: #6a6a6a;
+    color: rgb(106, 106, 106);   
 }
 
 #sectionTitle{
@@ -107,7 +143,7 @@
     color: #484848 !important;
 }
 #left-panel span{
-    font: .6em Calibri, Arial, Verdana, sans-serif !important;
+    font: .8em Calibri, Arial, Verdana, sans-serif !important;
 }
 #left-panel p{
     font: bold 1.6em Calibri, Arial, Verdana, sans-serif !important;
@@ -269,7 +305,23 @@ span .ui-icon .ui-icon-plus{
 .app .ui-listview li p {
     color: rgb(183, 183, 183) !important;
 }
-/* First breakpoint is 48em (768px). 3 column layout. Tiles 250x250 pixels incl. margin at the breakpoint. */
+
+
+/* Second breakpoint is 45em (720px). */
+@media ( min-width: 45em ) {
+    
+    #menuNav, #homeNav, #helpNav{
+    text-decoration: none;
+    font-size: 1.4em;
+    }
+    
+    #left-panel span{
+    font: 1em Calibri, Arial, Verdana, sans-serif !important;
+    }
+}
+
+
+/* Second breakpoint is 48em (768px). 3 column layout. Tiles 250x250 pixels incl. margin at the breakpoint. */
 @media ( min-width: 48em ) {
     
     /* Communications footer on homepage*/
@@ -286,14 +338,28 @@ span .ui-icon .ui-icon-plus{
     #com a span{
     font-size: 1em;
     }
-    #helpNav{
-    font-size: 2em;
+    #menuNav, #homeNav, #helpNav{
+    font-size: 1.6em;
+    }
+    
+    #left-panel span{
+    font: 1.2em Calibri, Arial, Verdana, sans-serif !important;
     }
     
     /*Custom Buttons*/
-    #menuNav img, #homeNav img{
+    /*#menuNav img, #homeNav img{
         width: 55px;
+    }*/
+    /*Tables*/
+    
+    thead{
+    font-size: 1.4em;
     }
+    
+    tbody{
+    font-size: 1.2em;
+    }
+    
     #sectionTitle{
         font-size: 2em !important;
     }
@@ -434,7 +500,7 @@ span .ui-icon .ui-icon-plus{
         transition: all 500ms ease;
     }
 }
-/* Second breakpoint. 4 column layout. Tiles will be 250x250 pixels again at the breakpoint. */
+/* Thrid breakpoint. 4 column layout. Tiles will be 250x250 pixels again at the breakpoint. */
 @media all and (min-width: 1020px){
     .app .ui-content {
         padding: 10px;
