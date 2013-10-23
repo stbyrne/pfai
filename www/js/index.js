@@ -1,6 +1,6 @@
 $(function(){
 
-    
+   
 ///////////////////Ajax jsonp function to get data from json file////////////////
 		
     
@@ -17,7 +17,6 @@ function jsonTitles(holdData){
         success: function(data) {
             holdData(data);
             
-            /*$('body').remove('#loader');*/
         },
         error: function() {
             $('body').css({
@@ -45,15 +44,10 @@ jsonTitles(function(content){
             appTitle = $(content.app).attr('appTitle'),
             subTitle = $(content.app).attr('subTitle'),
             newsTitle = $('#newsTitle'),
-            /*sectionTitle = $(content.app.section.news.title),
-            story = content.app.section.news.story,*/
             newsList = $('#newsList'),
             collapseList = $('#collapseList'),
             homeList = $('#homeList'),
-            logLeft = $('#loglistLeft'),/*
-            menuLeft = $('#menulistLeft'),*/
-            /*news = $(content.app.section.news),*/
-            /*article = $(content.app.section.news.article),*/
+            logLeft = $('#loglistLeft'),
             $body = $('body'),
             section = $(content.app.section),
             article = section.attr('article');
@@ -211,6 +205,12 @@ jsonTitles(function(content){
        
     });///End jsonTitles Function///
 
+
+    
+ 
+    
+});///End jQuery Function///
+
     
 //////////////////////Initiate Maps///////////////////
     
@@ -248,44 +248,6 @@ jsonTitles(function(content){
 });
     
 //////////////////////End Maps//////////////////////////
-    
-   /* $('#logo').click(function(){
-        window.open('http://www.skillpad.com', '_blank');
-    
-    });*/
-    
-/*    $( document ).on( "pagecreate", "#home", function() {
-    $( document ).on( "swipeleft swiperight", "#home", function( e ) {
-        // We check if there is no open panel on the page because otherwise
-        // a swipe to close the left panel would also open the right panel (and v.v.).
-        // We do this by checking the data that the framework stores on the page element (panel: open).
-        if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
-            if ( e.type === "swipeleft"  ) {
-                $( "#right-panel" ).panel( "open" );
-            } else if ( e.type === "swiperight" ) {
-                $( "#left-panel" ).panel( "open" );
-            }
-        }
-    });
-})*/;
-    
-/*    $( document ).on( "pageinit", "body", function() {
-    $( document ).on( "swipeleft swiperight", "body", function( e ) {
-        // We check if there is no open panel on the page because otherwise
-        // a swipe to close the left panel would also open the right panel (and v.v.).
-        // We do this by checking the data that the framework stores on the page element (panel: open).
-        if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
-            if ( e.type === "swipeleft"  ) {
-                $( "#right-panel" ).panel( "open" );
-            } else if ( e.type === "swiperight" ) {
-                $( "#left-panel" ).panel( "open" );
-            }
-        }
-    });
-});*/
-  
-    
-});///End jQuery Function///
 
 /////////////Apply click styling to communication buttons on homepage//////////////
 
@@ -334,9 +296,53 @@ window.open('https://www.facebook.com/pages/PFAIOfficial/137333183069003');
     
 ////////////////////Fix page while scrolling left menu///////////////////////
 
-$('#menuNav').on('click', function(){
+/*$('#menuNav').on('click', function(){
     $('#home').attr('data-position', 'fixed');
-});
+});*/
+
+////////////////////Create Table for Transfer List///////////////////////
+
+   
+$( document ).on( "pageinit", "#transferlist", function() {
+    
+    var translistContent = $('#transferlistContent');
+
+    translistContent.append($('<table/>', {
+        'data-role': 'table',
+    }).append($('<thead/>').append($('<tr/>').html('<th>#</th><th>Name</th><th>Club</th><th>Pos</th><th>Age</th><th>dob</th><th>kg</th><th>Exp</th>'))).append($('<tbody/>').append($('<tr/>').html('<th>1</th><td>cell</td><td>cell</td><td>cell</td><td>cell</td><td>cell</td><td>cell</td><td>cell</td>'))));
+    
+    });
+
+
+
+/*.append($('<thead/>')).append($('<tr/>')).html('<th></th><th>Player Name</th><th>Pre Club</th><th>Positions</th><th>Age</th><th>Date Of Birth</th><th>Weight kg</th><th>Exp Level</th>')*/
+
+
+/*<table id="transfer-list" class="table table-striped table-bordered">
+            <caption><h4>Current Transfer List Of Availabe Players</h4></caption>
+            <colgroup>
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Player Name</th>
+                    <th scope="col">Previous Clubs</th>                            
+                    <th scope="col">Positions</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Date Of Birth</th>
+                    <th scope="col">Weight(kg)</th>
+                    <th scope="col">Experience Level</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>*/
 
 
 	

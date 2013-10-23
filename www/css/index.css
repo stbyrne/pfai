@@ -89,6 +89,36 @@
     max-width: 40%;
 }
 
+/*Table for Transfer Listed Players*/
+table{
+    width: 100%;
+    text-align: left;
+    margin: 5px auto 10px;
+    border-spacing: 2px;
+    border-collapse: collapse;
+}
+
+thead{
+    font: bold 1em Helvetica, Calibri, Arial, Verdana, sans-serif;
+    color: #00b937;
+    color: rgba(0, 170, 50, 0.85);
+    
+}
+tr{
+    display: table-row;
+      
+}
+th, td{
+    display: table-cell;
+    padding: 5px;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+tbody{
+    font: .8em Helvetica, Calibri, Arial, Verdana, sans-serif;
+    color: #6a6a6a;
+    color: rgb(106, 106, 106);   
+}
+
 #sectionTitle{
     font: bold 1.2em Calibri, Arial, Verdana, sans-serif !important;
     text-overflow: ellipsis !important;
@@ -292,6 +322,16 @@ span .ui-icon .ui-icon-plus{
     #menuNav img, #homeNav img{
         width: 55px;
     }
+    /*Tables*/
+    
+    thead{
+    font-size: 1.4em;
+    }
+    
+    tbody{
+    font-size: 1.2em;
+    }
+    
     #sectionTitle{
         font-size: 2em !important;
     }
