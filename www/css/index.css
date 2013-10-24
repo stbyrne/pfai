@@ -47,7 +47,7 @@
     max-height: 1.5em;
     float: left;
     margin: -.2em 4px;
-    position: relative;
+    /*position: relative;*/
 }
 
 /* Communications footer on homepage*/
@@ -106,7 +106,7 @@ table{
 }
 
 thead{
-    font: bold .9em Helvetica, Calibri, Arial, Verdana, sans-serif;
+    font: bold .9em Helvetica, Calibri, Arial, Verdana, sans-serif !important;
     color: #00b937;
     color: rgba(0, 170, 50, 0.85);
     
@@ -315,7 +315,10 @@ span .ui-icon .ui-icon-plus{
     }
     
     #left-panel span{
-    font: 1em Calibri, Arial, Verdana, sans-serif !important;
+    font-size: 1em;
+    }
+    #left-panel p{
+    font-size: 2.2em;     
     }
     
     .feature img{
@@ -348,6 +351,9 @@ span .ui-icon .ui-icon-plus{
     #left-panel span{
     font: 1.2em Calibri, Arial, Verdana, sans-serif !important;
     }
+    #left-panel p{
+    font-size: 2.4em;     
+    }
     
     /*Custom Buttons*/
     /*#menuNav img, #homeNav img{
@@ -356,11 +362,11 @@ span .ui-icon .ui-icon-plus{
     /*Tables*/
     
     thead{
-    font-size: 1.4em;
+    font-size: 1.2em !important;
     }
     
     tbody{
-    font-size: 1.2em;
+    font-size: 1em !important;
     }
     
     #sectionTitle{

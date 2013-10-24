@@ -64,10 +64,6 @@ jsonCallback(
                 "title": "Membership"
             },
             {
-                "id": "transferlist",
-                "title": "Transfer List"
-            },
-            {
                 "id": "coaching",
                 "title": "Coaching"
             },

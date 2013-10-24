@@ -1,3 +1,7 @@
+<?php
+require_once('dataconnect.php');
+?>
+
 <!doctype HTML>
 <html lang="en">
 <head>
@@ -96,7 +100,7 @@
                 </div>
                 <div data-role="content">
                     <ul id="homeList" data-role="listview" data-icon="false" class="ui-icon-nodisc ui-icon-alt">
-                        
+                        <li><a href="#transferlist"><span>Transfer List</span></a></li>
                     
                     </ul>
                     
@@ -119,7 +123,7 @@
                 
                 <h1 id="sectionTitle">Need help</h1>
                 <h2 id="subTitle">Heres some tips!</h2>
-                <a href="#home" id="homeNav" class="ui-nodisc-icon" data-role="none"><img src="images/nav_g.png"/> Back</a>
+                <a href="#home" id="homeNav" class="ui-nodisc-icon" data-role="none">Home</a>
                 
             </div>
             
@@ -129,16 +133,16 @@
                 
             </div>
         
-            
             <div id="com" data-role="footer">
                 
-                    <a href="" ><img src="images/call_g.png"/><span>call</span></a>
-                    <a href="" ><img src="images/mail_g.png"/><span>mail</span></a>
-                    <a href="" ><img src="images/twit_g.png"/><span>twitter</span></a>
-                    <a href="" ><img src="images/face_g.png"/><span>facebook</span></a>
+                    <a href="#"><img src="images/call_g.png"/><span>call</span></a>
+                    <a href="#"><img src="images/mail_g.png"/><span>mail</span></a>
+                    <a href="#"><img src="images/twit_g.png"/><span>twitter</span></a>
+                    <a href="#"><img src="images/face_g.png"/><span>facebook</span></a>
             
             </div>
-           
+        
+                       
             <!--Slide Content Left Panel-->
             
             <div data-role="panel" id="left-panel" data-theme="c" data-inset="true">
@@ -154,6 +158,102 @@
                 </div>
             </div>
     </div>
+    
+<!--End Help Page-->
+    
+<!--Transfer List Page-->
+    
+    <div id="transferlist" data-role="page">
+        
+            <div data-role="header" data-position="fixed" data-theme="c">
+                
+                <a href="#left-panel" id="homeNav" class="ui-nodisc-icon" data-role="none"><img src="images/nav_g.png"/> Menu</a>
+                <h1 id="sectionTitle">Transfer List</h1>
+                <h2 id="subTitle">Currently available players</h2>
+                <a href="#home" id="homeNav" class="ui-nodisc-icon" data-role="none">Home</a>
+                
+            </div>
+            
+            <div data-role="content" id="transferlistContent">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Club</th>
+                            <th>Pos</th>
+                            <th>Age</th>
+                            <th>dob</th>
+                            <th>kg</th>
+                            <th>Exp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <td>Stuart Byrne</td>
+                            <td>Shelbourne</td>
+                            <td>Midfield</td>
+                            <td>36</td>
+                            <td>1976-11-04</td>
+                            <td>77</td>
+                            <td style="background-color: #ffc831"></td>
+                        </tr>
+<?php
+
+/*$query = "SELECT `task_name`, `task_club`, `task_pos`, `task_age`, `task_dob`, `task_weight`, `task_exp` FROM `tasks`";
+
+
+if($query_run = mysql_query($query)){
+    while($query_row = mysql_fetch_assoc($query_run)){
+        $name = $query_row['task_name']; 
+        $club = $query_row['task_club'];
+        $pos = $query_row['task_pos'];
+        $age = $query_row['task_age'];
+        $dob = $query_row['task_dob'];
+        $weight = $query_row['task_weight'];
+        $exp = $query_row['task_exp'];
+        
+        echo '<tr><th></th><td>' . $name . '</td><td>' . $club . '</td><td>' . $pos . '</td><td>' . $age . '</td><td>' . $dob . '</td><td>' . $weight . '</td><td style="background-color: ' . $exp . '"></td></tr>';
+    }
+    
+}else{
+    echo mysql_error();   
+}*/
+?>
+                        
+                        
+                        
+                    </tbody>
+                </table>
+                
+                
+            </div>
+        
+            
+            <div id="com" data-role="footer">
+                
+                    
+            
+            </div>
+           
+            <!--Slide Content Left Panel-->
+            
+            <div data-role="panel" id="left-panel" data-theme="c" data-inset="true">
+                <div data-role="controlgroup">
+                    <p>Menu</p>
+                </div>
+                <div data-role="content">
+                    <ul id="transList" data-role="listview" data-icon="false" class="ui-icon-nodisc ui-icon-alt">
+                        <!--<li><a href="#transferlist"><span>Transfer List</span></a></li>-->
+                    
+                    </ul>
+                    
+                </div>
+            </div>
+    </div>
+    
+<!--End Transfer List Page-->
     
     
     <script src="js/custom/jquery.mobile.custom.min.js"></script>

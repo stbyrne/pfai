@@ -47,6 +47,7 @@ jsonTitles(function(content){
             newsList = $('#newsList'),
             collapseList = $('#collapseList'),
             homeList = $('#homeList'),
+            transList = $('#transList'),
             logLeft = $('#loglistLeft'),
             $body = $('body'),
             section = $(content.app.section),
@@ -68,10 +69,7 @@ jsonTitles(function(content){
         section.each(function(i){
                     var num = i + 1,
                         pageid = $(this).attr('id'),
-                        pagetitle = $(this).attr('title'),
-                        membership = this.news,
-                        transferlist = this.transferlist,
-                        coaching = this.coaching;
+                        pagetitle = $(this).attr('title');
             
                         pagelist.push(pagetitle);
                         pageidlist.push(pageid);
@@ -82,6 +80,15 @@ jsonTitles(function(content){
                 $('<li />', {
                     'data-theme': 'c'
                 }).html('<a href="#' + pageid + '"><span>' + pagetitle + '</span></a>')).listview('refresh');
+            
+////////////////////Create List navigation in left panel on home page///////////////////////
+            
+            /*transList.append(
+                $('<li />', {
+                    'data-theme': 'c'
+                }).html('<a href="#' + pageid + '"><span>' + pagetitle + '</span></a>')).listview('refresh');*/
+            
+
                 
             
 ///////////////////Creates the individual pages for each section////////////////
@@ -192,6 +199,10 @@ jsonTitles(function(content){
     
     
 ////////////////////Left Panel List of sections/////////////////////
+                    pagelist.unshift('Transfer List'),
+                    pageidlist.unshift('transferlist'),
+                    console.log(pagelist);
+                    console.log(pageidlist);
     
                     $(pagelist).each(function(i){
                            
@@ -299,63 +310,6 @@ window.open('https://www.facebook.com/pages/PFAIOfficial/137333183069003');
     $('#home').attr('data-position', 'fixed');
 });*/
 
-////////////////////Create Table for Transfer List///////////////////////
-
-   
-$( document ).on( "pageinit", "#transferlist", function() {
-    
-    var translistContent = $('#transferlistContent');
-
-    translistContent.append($('<table/>', {
-        'data-role': 'table',
-    }).append($('<thead/>').append($('<tr/>').html('<th>#</th><th>Name</th><th>Club</th><th>Pos</th><th>Age</th><th>dob</th><th>kg</th><th>Exp</th>'))).append($('<tbody/>').append($('<tr/>').html('<th>1</th><td>Stuart Byrne</td><td>cell</td><td>cell</td><td>cell</td><td>cell</td><td>cell</td><td>cell</td>'))));
-    
-    //
-    
-    /*function getTweet(holdData){*/
-                
-        $.ajax({
-        
-            /*url: 'services/twitter_example.json',*/
-            url: 'http://localhost/pfai_app_v5/connect.php',
-            dataType: 'json',
-            success: function(data) {
-                console.log(data);
-                /*holdData(data);*/
-            }
-        });
-    /*}*/
-    
-    
-                //Ajax request to get current transfer list and append it to table//
-
-/*var tbody = $('#transferlistContent > tbody');*/
-
-/*$.ajax({
-            type: "GET",
-            url: "services/submit.php",
-            dataType: "json"
-            }).success(function(data) { 
-                    console.log(data);
-                    if(data.success === true) {
-                        tbody.append('<tr><th></th><td>' + data['name'] + '</td><td>' + data['club'] + '</td><td>' + data['pos'] + '</td><td>' + data['age'] + '</td><td>' + data['dob'] + '</td><td>' + data['weight'] + '</td><td style="background-color: ' + data['exp'] + '"></td></tr>');
-                        
-                        $('#new-player').each(function(){
-                            this.reset();
-                            
-                        });
-                        
-                        console.log(json);
-                        
-                    } else {
-                        alert(data.error.join());
-                    }
-                }).fail(function(data) { 
-                alert("Failed to add player to list"); 
-            });*/
-    
-    
-		});
 
 
 
