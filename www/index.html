@@ -120,10 +120,10 @@ require_once('dataconnect.php');
     <div id="help" data-role="page">
         
             <div data-role="header" data-position="fixed" data-theme="c">
-                
+                <a href="#left-panel" id="menuNav" class="ui-nodisc-icon" data-role="none"><img src="images/nav_g.png"/>Menu</a>
                 <h1 id="sectionTitle">Need help</h1>
                 <h2 id="subTitle">Heres some tips!</h2>
-                <a href="#home" id="homeNav" class="ui-nodisc-icon" data-role="none">Home</a>
+                <a href="#home" id="homeNav" class="ui-nodisc-icon ui-btn-right" data-role="none">Home</a>
                 
             </div>
             
@@ -147,13 +147,10 @@ require_once('dataconnect.php');
             
             <div data-role="panel" id="left-panel" data-theme="c" data-inset="true">
                 <div data-role="controlgroup">
-                    <p>Menu</p>
+                    <p>Tap the main page &rarr; <br>or wipe left to close.</p>
                 </div>
                 <div data-role="content">
-                    <ul id="homeList" data-role="listview" data-icon="false" class="ui-icon-nodisc ui-icon-alt">
-                        
-                    
-                    </ul>
+                    <img src="images/swipe.png" id="swipe"/>
                     
                 </div>
             </div>
@@ -199,31 +196,7 @@ require_once('dataconnect.php');
                             <td>77</td>
                             <td style="background-color: #ffc831"></td>
                         </tr>
-<!--<?php
-
-$query = "SELECT `task_name`, `task_club`, `task_pos`, `task_age`, `task_dob`, `task_weight`, `task_exp` FROM `tasks`";
-
-
-if($query_run = mysql_query($query)){
-    while($query_row = mysql_fetch_assoc($query_run)){
-        $name = $query_row['task_name']; 
-        $club = $query_row['task_club'];
-        $pos = $query_row['task_pos'];
-        $age = $query_row['task_age'];
-        $dob = $query_row['task_dob'];
-        $weight = $query_row['task_weight'];
-        $exp = $query_row['task_exp'];
-        
-        echo '<tr><th></th><td>' . $name . '</td><td>' . $club . '</td><td>' . $pos . '</td><td>' . $age . '</td><td>' . $dob . '</td><td>' . $weight . '</td><td style="background-color: ' . $exp . '"></td></tr>';
-    }
-    
-}else{
-    echo mysql_error();   
-}
-?>-->
-                        
-                        
-                        
+      
                     </tbody>
                 </table>
                 

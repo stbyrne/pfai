@@ -310,6 +310,76 @@ window.open('https://www.facebook.com/pages/PFAIOfficial/137333183069003');
     $('#home').attr('data-position', 'fixed');
 });*/
 
+////////////////////Get Current Transfer JSON array//////////////////////////
+
+function getList(holdData){
+                
+        $.ajax({
+        
+            url: 'getList.php?',
+            dataType: 'json',
+            success: function(data) {
+                holdData(data);
+            }
+        });
+}
+    
+    
+    getList(function(list){
+        
+        var $item = list.item,
+            $tbody = $('#transferlistContent tbody');
+                        
+        $($item).each(function(i){
+            
+            var playerNum = i + 1,
+                $name = $(this)[0].task_name,
+                $club = $(this)[0].task_club,
+                $pos = $(this)[0].task_pos,
+                $age = $(this)[0].task_age,
+                $dob = $(this)[0].task_dob,
+                $weight = $(this)[0].task_weight,
+                $exp = $(this)[0].task_exp;
+                
+            console.log($name);
+            $tbody.append($('<tr/>', {
+                'id': 'row'
+            
+            }).html('<td>' + playerNum + '</td><td>' + $name + '</td><td>' + $club + '</td><td>' + $pos + '</td><td>' + $age + '</td><td>' + $dob + '</td><td>' + $weight + '</td><td style="background-color:' + $exp + '"></td>'));
+                
+        
+        
+        });
+        
+    });
+
+//////////////////////////////////////////////////////////////////////////////
+
+
+/*$( document ).on('pageinit', '#transferlist', function(){
+    
+   gettransferData;
+    
+});
+
+    function gettransferData(){
+    
+        $.getJSON("http://localhost/pfai_app_v6/dataconnect.php", function(data){
+        
+            console.log(data);
+        
+        }).success(function(){
+        
+            console.log('success');
+        }).fail(function(){
+                    console.log('fail');
+                    
+                });
+    
+        
+    
+    
+        }*/
 
 
 

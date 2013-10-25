@@ -117,11 +117,11 @@ tr{
 }
 th, td{
     display: table-cell;
-    padding: 4px;
+    padding: 6px 2px;
     border-bottom: 1px solid rgb(200, 200, 200);
 }
 tbody{
-    font: .5em Helvetica, Calibri, Arial, Verdana, sans-serif !important;
+    font: .6em Helvetica, Calibri, Arial, Verdana, sans-serif !important;
     color: #6a6a6a;
     color: rgb(106, 106, 106);   
 }
@@ -221,7 +221,7 @@ span{
 /*News Pages*/
 
 .feature img{
-    max-width: 80%;
+    width: 50%;
     display: block;
     position: relative;
     margin: 10px auto 10px;
@@ -324,6 +324,19 @@ span .ui-icon .ui-icon-plus{
     .feature img{
     width: 50%;
     }
+    #com{
+    height: 90px;
+    }
+    #com a{
+    height: 90px;
+    }
+    #com a img{
+        margin-top: 10px;
+        max-width: 50%;
+    }
+    #com a span{
+    font-size: .8em;
+    }
 }
 
 
@@ -332,10 +345,10 @@ span .ui-icon .ui-icon-plus{
     
     /* Communications footer on homepage*/
     #com{
-        height: 90px;   
+        height: 110px;   
     }
     #com a{
-        height: 90px;   
+        height: 110px;   
     }
     #com a img{
         margin-top: 15px;
@@ -376,9 +389,6 @@ span .ui-icon .ui-icon-plus{
         font-size: 1.4em !important;
     }
     
-    .feature img{
-    width: 60%;
-    }
     
     .app .ui-content {
         padding: 9px;
