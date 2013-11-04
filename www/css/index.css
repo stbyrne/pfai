@@ -11,8 +11,8 @@
     align-content:center;
 }
 #loader{
+    margin-top: 40px;
     text-align:center;
-    background: -webkit-linear-gradient(top, #848484, #1d1d1d) !important;
     height: 100%;
 }
 #loadText{

@@ -212,6 +212,12 @@ jsonTitles(function(content){
                                         }).html('<a href="#' + pageidlist[i] +'"><span>' + this + '</span></a>'));
                                
                     });
+
+////////////////////Add loader to Maps page/////////////////////
+    
+$('#mapsContent').append($('<div/>', {
+    'id': 'loader'
+}).html('<h2>Loading Map</h2><img src="images/load.gif"/>'));
                
        
     });///End jsonTitles Function///
@@ -220,6 +226,8 @@ jsonTitles(function(content){
 
 
 });///End jQuery Function///
+
+
 
     
 //////////////////////Initiate Maps///////////////////
