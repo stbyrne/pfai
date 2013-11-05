@@ -232,7 +232,7 @@ $('#mapsContent').append($('<div/>', {
     
 //////////////////////Initiate Maps///////////////////
     
-/*        $( document ).on( "pageinit", "#maps", function() {
+        $( document ).on( "pageinit", "#maps", function() {
        
     var defaultLatLng = new google.maps.LatLng(53.3954533, -6.355980);  // Default to PFAI offices, Dublin when no geolocation support
     if ( navigator.geolocation ) {
@@ -263,7 +263,7 @@ $('#mapsContent').append($('<div/>', {
             title: "You are here!"
         });
     }
-});*/
+});
     
 //////////////////////End Maps//////////////////////////
 
