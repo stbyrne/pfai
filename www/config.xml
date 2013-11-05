@@ -76,6 +76,10 @@
     <gap:splash src="res/screen/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
     
     <gap:splash src="res/screen/winphone/splash.jpg" gap:platform="winphone" />
+    
+    <!--Access all domains-->
+    
+    <access origin="*" subdomains="true" />
 
 	 <plugins>
         <plugin name="Device" value="CDVDevice" />
