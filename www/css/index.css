@@ -68,7 +68,7 @@
     -moz-box-pack: center;
     -o-box-pack: center;
     -ms-box-pack: center;
-    border-right: 1px solid #bfbfbf;
+    /*border-right: 1px solid #bfbfbf*/;
     margin-right: -1px;
     /*padding: 10px;*/
     height: 60px;
