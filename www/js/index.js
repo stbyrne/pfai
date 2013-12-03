@@ -77,7 +77,8 @@ jsonTitles(function(content){
         section.each(function(i){
                     var num = i + 1,
                         pageid = $(this).attr('id'),
-                        pagetitle = $(this).attr('title');
+                        pagetitle = $(this).attr('title'),
+                        pagecontent = $(this).attr('content');
             
                         pagelist.push(pagetitle);
                         pageidlist.push(pageid);
@@ -112,7 +113,7 @@ jsonTitles(function(content){
                             $(this).append($('<div />', {
                                 'data-role': 'content',
                                 'id': pageid + 'Content'
-                            })).append($('<div />', {
+                            })/*.html('<p>' + pagecontent + '</p>')*/).append($('<div />', {
                                     'data-role': 'panel',
                                     'class': 'ui-icon-alt',
                                     id: 'left-panel'
@@ -318,7 +319,7 @@ setTimeout(function(){
                             /*'data-theme': 'c',*/
                             'data-icon': 'false',
                             'class': 'ui-icon-alt ui-icon-nodisc'
-                        }).html('<a href="#' + $articleid + '"><img src="images/news/news_' + articleNum + '.png"><h2>' + $headline + '</h2><p>' + $text +'</p><p class="ui-li-aside">more...</p></a>'));
+                        }).html('<a href="#' + $articleid + '"><img src="images/news/' + $image + '"><h2>' + $headline + '</h2><p>' + $text +'</p><p class="ui-li-aside">more...</p></a>'));
     
 
                 console.log($articleid);
@@ -337,7 +338,7 @@ setTimeout(function(){
                                 'data-role': 'content',
                                 'id': $articleid + 'Content',
                                 'class': 'feature'
-                            }).html('<img src="images/news/news_'+ articleNum +'.png"/><p>'+ $text +'</p>')).append($('<div />', {
+                            }).html('<img src="images/news/'+ $image +'"/><p>'+ $text +'</p>')).append($('<div />', {
                                     'data-role': 'panel',
                                     'class': 'ui-icon-alt',
                                     id: 'left-panel'
@@ -384,7 +385,7 @@ $(pagelist).each(function(i){
 
 //////////////////////Initiate Maps///////////////////
     
-        $( document ).on( "pageinit", "#maps", function() {
+        $( document ).on( "pageshow", "#maps", function() {
        
     var defaultLatLng = new google.maps.LatLng(53.3954533, -6.355980);  // Default to PFAI offices, Dublin when no geolocation support
     if ( navigator.geolocation ) {
@@ -410,9 +411,9 @@ $(pagelist).each(function(i){
         var map = new google.maps.Map(document.getElementById("mapsContent"), myOptions);
         // Add an overlay to the map of current lat/lng
         var marker = new google.maps.Marker({
-            position: latlng,
+            position: defaultLatLng,
             map: map,
-            title: "You are here!"
+            title: "We are here!"
         });
     }
 });

@@ -14,7 +14,8 @@ jsonCallback(
             },
             {
                 "id": "coaching",
-                "title": "Coaching"
+                "title": "Coaching",
+                "content": "Content and layout to be decided."
             },
             {
                 "id": "health",

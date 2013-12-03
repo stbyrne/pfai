@@ -21,6 +21,13 @@
     bottom: 0 !important;
     text-align: center !important;
 }
+#home-display{
+     text-align: center;  
+}
+#home .home-image{
+    width: auto;
+    height: 250px;
+}
 /*Custom Buttons*/
 
 /*#menuNav, #homeNav{
@@ -431,7 +438,7 @@ span .ui-icon .ui-icon-plus{
     .app .ui-listview:not(#listLeft) .ui-li-thumb {
         height: auto; /* To keep aspect ratio. */
         max-width: 100%;
-        max-height: none;
+        max-height: 100%;
         margin: 0;
         left: 0;
         z-index: -1;
