@@ -5,9 +5,9 @@ if ( isset( $connection ) )
 	return;
 mysqli_report(MYSQLI_REPORT_STRICT);
 
-$connection = new mysqli("localhost", "root", "root", "transfer");
+$connection = new mysqli("localhost", "root", "", "transfer");
 
-if (mysqli_connect_errno()) {
+if (mysqli_connect_errno()) {		
 	die(sprintf("Connect failed: %s\n", mysqli_connect_error()));
 }
 ?>

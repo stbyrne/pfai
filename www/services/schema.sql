@@ -28,27 +28,11 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   KEY `idx_task_name_key` (`task_name`)
 ) DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
-CREATE TABLE IF NOT EXISTS `articles` (
-  `article_id` bigint(20) unsigned NOT NULL auto_increment,
-  `user_id` bigint(20) NOT NULL REFERENCES `users`(`user_id`),
-  `article_headline` varchar(40) NOT NULL,
-  `article_image` varchar(20) NOT NULL,
-  `article_caption` varchar(60) NOT NULL,
-  `article_text` varchar(1000) NOT NULL,
-  PRIMARY KEY (`article_id`),
-  KEY `idx_article_headline_key` (`article_headline`)
-) DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
-
 
 INSERT INTO `users` ( `user_login`, `user_password`, `user_firstname`, 
 	`user_surname`, `user_email`, `user_registered` )
 SELECT 'stuart', PASSWORD('password'), 'Stuart',
 	'Byrne', 'strtbyrne@gmail.com', NOW();
-    
-INSERT INTO `users` ( `user_login`, `user_password`, `user_firstname`, 
-	`user_surname`, `user_email`, `user_registered` )
-SELECT 'admin', PASSWORD('pfai'), 'Admin',
-	'PFAI', 'info@pfai.ie', NOW();
 	
 CREATE TABLE IF NOT EXISTS `sessions` (
   `session_id` bigint(20) unsigned NOT NULL auto_increment,
