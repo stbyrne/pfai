@@ -26,7 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$query->execute();
 			$query->close();
 			
-			header('Location: index.php');
+			
+            header('Location: index.php');
 		}
 		else {
 			header('Location: login.php');
@@ -43,9 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<title>PFAI Tansfer List Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/form.css"/>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <!--<link href="css/bootstrap-responsive.css" rel="stylesheet">-->
 	
 </head>
 <body>
@@ -53,30 +54,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<!-- [banner] -->
 	<header id="banner">
 		<hgroup>
-			<h4>PFAI Tansfer List Login</h4>
+			<h1>PFAI Tansfer List Login</h1>
 		</hgroup>		
 	</header>
 	<!-- [content] -->
 	<section id="content">
-		<form id="login" class="form-horizontal" method="post">
+		<form id="login" class="form-horizontal" role="form" method="post">
             
-            <div class="control-group">
-                <label class="control-label" for="username">Username:</label>
-                    <div class="controls">
-                        <input id="username" name="username" type="text" placeholder="username" required>
+            <div class="form-group">
+                <label class="control-label col-lg-2" for="username">Username</label>
+                    <div class="col-lg-10">
+                        <input id="username" class="form-control" name="username" type="text" placeholder="username" required>
                     </div>
             </div>
             
-            <div class="control-group">
-                <label class="control-label" for="password">Password:</label>
-                    <div class="controls">
-                        <input id="password" name="password" type="password" placeholder="password" required>
+            <div class="form-group">
+                <label class="control-label col-lg-2" for="password">Password</label>
+                    <div class="col-lg-10">
+                        <input id="password" class="form-control" name="password" type="password" placeholder="password" required>
                     </div>
             </div>
             
-			<div class="control-group">
-                <div class="controls">
-                    <button type="submit" class="btn" value="Login"><i class="icon-user"></i> Login</button>
+			<div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                    <button type="submit" class="btn btn-default" value="Login"><span class="glyphicon glyphicon-log-in"></span> Login</button>
                 </div>
             </div>
 		</form>

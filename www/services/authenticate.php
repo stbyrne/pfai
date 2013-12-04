@@ -13,6 +13,7 @@ $query->close();
 
 if(empty($session_id)) {
 	header('Location: login.php');
+    
 }
 
 $query = $connection->prepare("UPDATE `sessions` SET `session_expires` = DATE_ADD(NOW(),INTERVAL 1 HOUR) WHERE `session_id` = ?;");
